@@ -1,0 +1,65 @@
+<% layout("layouts/boilerPlate1") %>
+
+    <body>
+        <div class="container form2_body">
+            <form action="/allListings/<%=DataKey._id %>?_method=PUT" method="POST"  class="needs-validation" novalidate>
+
+                <div class="row col-xl-8 offset-md-2 offset-xs-1">
+                    <p>
+                    <h2>Edit Your Listing</h2>
+                    </p>
+                    <div class="mb-3">
+                        <label for="titlef2" class="form-label">Title</label>
+                        <input id="titlef2" type="text" value=<%=DataKey.title %> name="title1" class="form-control" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please Enter a valid Title</div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="locationf2" class="form-label">Location:</label>
+                        <input  required type="text" value=<%= DataKey.location %> name="location1" class="form-control">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please Enter a valid Location</div>
+                    </div>
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="mb-3 col-md-4">
+                                <label for="pricef2" class="form-label">Price:</label>
+                                <input required type="number" value=<%=DataKey.price %> name="price1" class="form-control">
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">Please Enter a valid price</div>
+                            </div>
+
+                            <div class="mb-3 col-md-8">
+                                <label for="countryf2" class="form-label">Country:</label>
+                                <input  required type="text" value=<%=DataKey.country %> name="country1" class="form-control">
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">Please Enter a valid Country</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image_url1" class="form-label">Image URL:</label>
+                        <input type="text" value=<%= DataKey.image.url %> name="image_url1" class="form-control">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please Enter a valid Location</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="descriptionf2" class="form-label">Description:</label>
+                        <textarea  required name="description1" value=<%=DataKey.description
+                            %> id="" cols="30" rows="10" class="form-control" ><%=DataKey.description %></textarea>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please Enter a valid Description</div>
+                    </div>
+
+                    <button type="submit" class="mb-3 btn btn-danger col-1">Edit</button>
+                </div>
+            </form>
+        </div>
+    </body>
+

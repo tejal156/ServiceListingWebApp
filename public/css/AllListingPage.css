@@ -1,0 +1,50 @@
+.allCard
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-top: 15px;
+
+}
+
+.card
+{
+    margin-bottom: 15px;
+    background-size: cover;
+    border: 0px;
+
+}
+
+.card-img-top
+{
+    height: 250px;
+    border-radius: 9px !important;
+}
+
+.card-img-overlay
+{
+    opacity: 0;
+}
+
+.card-img-overlay:hover
+{
+    opacity: 0.2 ;
+    background-color: white;
+}
+
+.card-body 
+{
+    padding: 0px;
+}
+
+.card-text
+{
+    padding: 5px 10px 18px;
+}
+
+.link_card
+{
+    text-decoration: none;
+}

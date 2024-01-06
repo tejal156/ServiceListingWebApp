@@ -1,0 +1,30 @@
+
+
+<% layout("layouts/boilerPlate1") %>
+<body>
+    <!-- <p>this is a displayList.ejs page</p> -->
+    <ul class="allCard">
+        <% for(let ele of allListingsDataKey)
+        { %>
+            <a href="/allListings/<%=ele.id %>" class="link_card">
+                <div class="card card1" style="width: 18rem;" >
+                    <img src="<%= ele.image.url %>" class="card-img-top" alt="...">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                      <p class="card-text"><%= ele.title  %>
+                        <br>&#8377;<%= ele.price  %>/night
+                    </p>
+                    </div>
+                  </div>
+            </a>
+
+            <!-- <li><a href="/allListings/<%=ele.id %>">  <%= ele.title  %>  </a></li> -->
+        <% } %>
+        
+    </ul>
+<!-- 
+    <form action="/allListings/new" method="GET">
+        <button>add Info</button>
+    </form> -->
+</body>
+

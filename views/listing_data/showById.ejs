@@ -1,0 +1,122 @@
+<% layout("layouts/boilerPlate1") %>
+
+    <body>
+
+        <!-- card -->
+        <div class="container-lg">
+            <div class="card offset-sm-2 col-sm-7 mt-3">
+                <h2 class="mb-3"><%= DataKey.title %></h2>
+                <img src="<%= DataKey.image.url  %>" class="card-img-top" alt="houseImage">
+                <div class="card-body">
+
+                    <!-- <div class="card-title" style="margin: 0;"><b>
+                            <%= DataKey.title %>
+                        </b></div> -->
+
+                    <div class="card-text" style="padding: 0px;">
+                        <p>
+                            <%= DataKey.description %>
+                        </p>
+                        <p>&#8377;<%= DataKey.price.toLocaleString("en-IN") %>
+                        </p>
+                        <p>
+                            <%= DataKey.location %>
+                        </p>
+                        <p>
+                            <%= DataKey.country %>
+                        </p>
+                    </div>
+
+                    <div class="btnsF2 mt-3">
+                        <form action="/allListings/<%= DataKey.id %>/edit" method="GET" class="me-3">
+                            <button class="btn btn-danger">Edit</button>
+                        </form>
+                        <br>
+                        <form action="/allListings/<%= DataKey.id %>?_method=DELETE" method="POST" class="">
+                            <button class="btn btn-dark">delete</button>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- this is form number 3 -->
+        <div class="container-lg">
+            <div class="card offset-sm-2 col-sm-8 mt-3">
+                <form action="/allListings/<%= DataKey._id %>/review" method="POST" novalidate class="needs-validation">
+
+                    <hr>
+                    <div>
+                        <h4>Leave a Review</h4>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="ratingF3" class="form-label" style="font-size: 1.2rem;">Rating</label>
+                        <input type="range" id="ratingF3" min="1" max="5" class="form-range col-sm-4" name="rangeF3">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">pls enter rating for review</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="commentF3" class="form-label" style="font-size: 1.2rem;">Comments</label>
+                        <textarea id="commentF3" cols="40" rows="5" class="form-control" name="commentF3" required></textarea>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">plz enter comment for review</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-outline-dark" >Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+
+        <!-- reviews are displayed here -->
+
+        <div class="container-lg">
+            <div class="card offset-sm-2 col-sm-8 mt-3">
+                <div class="row">
+                    <h5>All Reviews</h5>
+                    <% for( ele1 of DataKey.reviews){ %>
+
+                        <div class="mb-3 card col-5 me-5" style="border: 1px solid rgb(62, 62, 62);">
+                            <div class="card-body">
+                                <h6 class="card-title">unknown user</h6>
+                                <p class="card-text" style="margin-bottom: 0px;"><%= ele1.comment %><br/><%= ele1.rating %> star</p>
+                                
+
+                                <form action="/allListings/<%= DataKey._id %>/review/<%= DataKey.reviews[0]._id  %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="btn btn-dark mb-3">Delete</button>
+                                </form>
+                            </div>
+
+                            
+                        </div>
+                    
+                    <% } %>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        <!-- <p>Title: <%= DataKey.title  %></p>
+    <p>Description: <%= DataKey.description  %></p>
+    <p>Price: &#8377;<%= DataKey.price.toLocaleString("en-IN") %></p>
+    <p>Location: <%= DataKey.location  %></p>
+    <p>Country: <%= DataKey.country  %></p>
+    <p>ImageFilename: <%= DataKey.image.filename  %></p>
+    <p>ImageURL: <%= DataKey.image.url  %></p>
+    <form action="/allListings/<%= DataKey.id %>/edit" method="GET">
+        <button>Edit</button>
+    </form>
+    <br>
+    <form action="/allListings/<%= DataKey.id %>?_method=DELETE" method="POST">
+        <button>delete</button>
+    </form> -->

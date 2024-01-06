@@ -1,0 +1,63 @@
+/* form 1 styling */
+/* I add form2 info as follows */
+/* .form1AddListing
+{
+    margin-left: 200px;
+    padding-bottom: 35px;
+}
+
+.form1AddListing div
+{
+    font-size: 15px;
+    font-weight:bold;
+    height: 75px;
+    
+}
+
+.form1AddListing div input
+{
+    width: 800px;
+    margin: 0px;
+}
+
+
+.form1AddListing div textarea
+{
+    width: 800px;
+}
+
+.f1HeadText
+{
+    font-size: 40px;
+}
+
+.f1OneLine
+{
+    display: flex;
+    flex-direction: row;
+}
+.f1OneLine div input
+{
+    width: 350px;
+    margin-right: 100px;
+} */
+
+
+/* form 1 styling */
+
+
+
+/* form 2 styling */
+
+.form2_body
+{
+    color: var(--bs-dark);
+    font-weight: 600;
+    font-size: 15px;
+    font: 1rem/1.5 var(--bs-font-sans-serif)
+}
+
+/* .form-label
+{
+    font-weight: bold;
+} */

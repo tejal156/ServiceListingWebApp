@@ -1,0 +1,13 @@
+/* style for showById.ejs page */
+
+.card-text p
+{
+    margin: 0px;
+}
+
+.btnsF2
+{
+    display: flex;
+    flex-direction: row;
+}
+

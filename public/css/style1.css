@@ -1,0 +1,20 @@
+/* adding style for navigation bar */
+#navIcon
+{
+    color:red ;
+    font-size: 22px;
+    
+}
+
+.navbar-nav a
+{
+    margin-right: 50px;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.nav_body
+{
+    background-color: #fcfcfc !important;
+    border-bottom: 1px solid rgb(225, 225, 227);
+}
