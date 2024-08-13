@@ -1,0 +1,30 @@
+<!-- <h1>card added successfuly</h1> -->
+<%  if( successFlash && successFlash.length>0 ){ %>
+<div class="row">
+    <div  class="alert alert-success col-6 offset-3 alert-dismissible fade show" role="alert" col-6>
+        <% console.log(successFlash , successFlash.length) %>
+
+
+            <%= successFlash %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        
+    </div>
+    
+
+</div>
+<% }  %>
+<%  if( errorFlash && errorFlash.length>0 ){ %>
+    <div class="row">
+        <div  class="alert alert-danger col-6 offset-3 alert-dismissible fade show" role="alert" col-6 style="z-index: 3;">
+            <% console.log(errorFlash , errorFlash.length) %>
+    
+    
+                <%= errorFlash %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            
+        </div>
+        
+    
+    </div>
+<% } %>
+

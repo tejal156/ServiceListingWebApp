@@ -1,0 +1,32 @@
+<!-- <h3>This is a Users Login Page</h3> -->
+
+<% layout("layouts/boilerPlate1") %>
+
+
+
+<div class="container-lg">
+    <div class="row">
+        <form action="/user/login" class="offset-sm-1 col-sm-10 offset-md-2 col-md-8 offset-lg-3 col-lg-6 mt-3 needs-validation" novalidate method="POST">
+            <h3 class="mb-3" >Login  Page</h3>
+            <div class="mb-3">
+                <label class="form-label"  for="userName1">User Name :</label>
+                <input class="form-control" type="text" name="username" id="userName1" required>
+                <div class="invalid-feedback">Plz Enter valid Username</div>
+                <div class="valid-feedback">Looks good!</div>
+            </div>
+        
+            <div class="mb-3">
+                <label class="form-label"  for="passwordFuser1">Password :</label>
+                <input class="form-control" type="password" name="password" id="passwordFuser1" required>
+                <div class="invalid-feedback">Plz Enter valid Password</div>
+                <div class="valid-feedback">Looks good!</div>
+            </div>
+        
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+

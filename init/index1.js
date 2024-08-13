@@ -25,6 +25,8 @@ let initdata = async() =>
 {
     await listingModel.deleteMany({}) ;
 
+    dataObj.data = dataObj.data.map( (obj) => ({ ...obj , owner : "65f563e49350e5d6ec98176a"})) ;
+
     await listingModel.insertMany(dataObj.data) ;
 
 }

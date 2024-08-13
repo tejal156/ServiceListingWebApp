@@ -1,4 +1,5 @@
 const mongoose = require("mongoose") ;
+const UserModel = require("./userModel.js") ;
 
 // let myDate = new Date() ;
 const reviewSchema1 = new mongoose.Schema(
@@ -17,6 +18,11 @@ const reviewSchema1 = new mongoose.Schema(
         {
             type: Date,
             default:Date.now() 
+        },
+        owner:
+        {
+            type: mongoose.Schema.Types.ObjectId ,
+            ref: "UserModel" ,
         }
 
     }

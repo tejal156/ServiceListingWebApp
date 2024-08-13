@@ -15,6 +15,10 @@
 
                     <div class="card-text" style="padding: 0px;">
                         <p>
+                            Owned By <%= DataKey.owner.username  %>
+                        </p>
+
+                        <p>
                             <%= DataKey.description %>
                         </p>
                         <p>&#8377;<%= DataKey.price.toLocaleString("en-IN") %>
@@ -27,15 +31,23 @@
                         </p>
                     </div>
 
-                    <div class="btnsF2 mt-3">
-                        <form action="/allListings/<%= DataKey.id %>/edit" method="GET" class="me-3">
-                            <button class="btn btn-danger">Edit</button>
-                        </form>
-                        <br>
-                        <form action="/allListings/<%= DataKey.id %>?_method=DELETE" method="POST" class="">
-                            <button class="btn btn-dark">delete</button>
-                        </form>
-                    </div>
+
+
+
+
+                        <div class="btnsF2 mt-3">
+                            <form action="/allListings/<%= DataKey._id %>/edit" method="GET" class="me-3">
+                                <button class="btn btn-danger">Edit</button>
+                            </form>
+                            <br>
+                            <form action="/allListings/<%= DataKey._id %>?_method=DELETE" method="POST" class="">
+                                <button class="btn btn-dark">delete</button>
+                            </form>
+                        </div>
+
+
+
+
 
 
                 </div>
@@ -43,6 +55,7 @@
         </div>
 
         <!-- this is form number 3 -->
+        <% if( currUsersKey){ %>
         <div class="container-lg">
             <div class="card offset-sm-2 col-sm-8 mt-3">
                 <form action="/allListings/<%= DataKey._id %>/review" method="POST" novalidate class="needs-validation">
@@ -54,7 +67,21 @@
 
                     <div class="mb-3">
                         <label for="ratingF3" class="form-label" style="font-size: 1.2rem;">Rating</label>
-                        <input type="range" id="ratingF3" min="1" max="5" class="form-range col-sm-4" name="rangeF3">
+                        <!-- <input type="range" id="ratingF3" min="1" max="5" class="form-range col-sm-4" name="rangeF3"> -->
+                        <fieldset class="starability-slot">
+                            <legend>First rating:</legend>
+                            <input type="radio" id="no-rate" class="input-no-rate" name="rangeF3" value="1" checked aria-label="No rating." />
+                            <input type="radio" id="first-rate1" name="rangeF3" value="1" />
+                            <label for="first-rate1" title="Terrible">1 star</label>
+                            <input type="radio" id="first-rate2" name="rangeF3" value="2" />
+                            <label for="first-rate2" title="Not good">2 stars</label>
+                            <input type="radio" id="first-rate3" name="rangeF3" value="3" />
+                            <label for="first-rate3" title="Average">3 stars</label>
+                            <input type="radio" id="first-rate4" name="rangeF3" value="4" />
+                            <label for="first-rate4" title="Very good">4 stars</label>
+                            <input type="radio" id="first-rate5" name="rangeF3" value="5" />
+                            <label for="first-rate5" title="Amazing">5 stars</label>
+                          </fieldset>
                         <div class="valid-feedback">Looks good!</div>
                         <div class="invalid-feedback">pls enter rating for review</div>
                     </div>
@@ -73,6 +100,13 @@
                 </form>
             </div>
         </div>
+        <% }else{ %>
+            <div class="container-lg">
+                <div class="card offset-sm-2 col-sm-8 mt-3">
+                    <hr />
+                </div></div>
+        
+        <% } %>
 
 
         <!-- reviews are displayed here -->
@@ -80,18 +114,23 @@
         <div class="container-lg">
             <div class="card offset-sm-2 col-sm-8 mt-3">
                 <div class="row">
-                    <h5>All Reviews</h5>
+                    <h5 class="mb-3">All Reviews</h5>
                     <% for( ele1 of DataKey.reviews){ %>
-
                         <div class="mb-3 card col-5 me-5" style="border: 1px solid rgb(62, 62, 62);">
                             <div class="card-body">
-                                <h6 class="card-title">unknown user</h6>
-                                <p class="card-text" style="margin-bottom: 0px;"><%= ele1.comment %><br/><%= ele1.rating %> star</p>
+                                <% if(ele1.owner){ %> <h6 class="card-title">by <%= ele1.owner.username %></h6> <% } %>
+                                <% if(!ele1.owner){ %> <h6 class="card-title">by Unknown User</h6> <% } %>
                                 
-
+                                <p class="card-text" style="margin-bottom: 0px;"><%= ele1.comment %>
+                                    <br/> <p class="starability-result" data-rating="<%= ele1.rating %>">
+                                    
+                                      </p></p>
+                                
+                                <% if( currUsersKey){ %>
                                 <form action="/allListings/<%= DataKey._id %>/review/<%= DataKey.reviews[0]._id  %>?_method=DELETE" method="POST">
                                     <button type="submit" class="btn btn-dark mb-3">Delete</button>
                                 </form>
+                                <% } %>
                             </div>
 
                             
@@ -104,19 +143,3 @@
         </div>
 
 
-
-
-        <!-- <p>Title: <%= DataKey.title  %></p>
-    <p>Description: <%= DataKey.description  %></p>
-    <p>Price: &#8377;<%= DataKey.price.toLocaleString("en-IN") %></p>
-    <p>Location: <%= DataKey.location  %></p>
-    <p>Country: <%= DataKey.country  %></p>
-    <p>ImageFilename: <%= DataKey.image.filename  %></p>
-    <p>ImageURL: <%= DataKey.image.url  %></p>
-    <form action="/allListings/<%= DataKey.id %>/edit" method="GET">
-        <button>Edit</button>
-    </form>
-    <br>
-    <form action="/allListings/<%= DataKey.id %>?_method=DELETE" method="POST">
-        <button>delete</button>
-    </form> -->

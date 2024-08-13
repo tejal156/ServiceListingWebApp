@@ -2,7 +2,7 @@
 
     <body>
         <div class="container form2_body">
-            <form action="/allListings/<%=DataKey._id %>?_method=PUT" method="POST"  class="needs-validation" novalidate>
+            <form action="/allListings/<%=DataKey._id %>?_method=PUT" method="POST"  class="needs-validation" novalidate enctype="multipart/form-data">
 
                 <div class="row col-xl-8 offset-md-2 offset-xs-1">
                     <p>
@@ -43,8 +43,13 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="image_url1" class="form-label">Image URL:</label>
-                        <input type="text" value=<%= DataKey.image.url %> name="image_url1" class="form-control">
+                        <label for="">Original Image :</label>
+                        <div><img src="<%=tempImage %>" alt="original image"></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image_url1" class="form-label">New Image Upload:</label>
+                        <input type="file" name="image_url1" class="form-control">
                         <div class="valid-feedback">Looks good!</div>
                         <div class="invalid-feedback">Please Enter a valid Location</div>
                     </div>
